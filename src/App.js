@@ -31,6 +31,7 @@ function App() {
           <Rgb array={array} setArray={setArray} />
         </div>
           <p>update</p>
+          hi
       </div>
   );
 }
