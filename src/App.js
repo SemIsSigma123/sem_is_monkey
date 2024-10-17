@@ -1,24 +1,36 @@
-import logo from './logo.svg';
 import './App.css';
+import Paint from "./components/Paint";
+import { useState } from "react";
+import Clear from "./components/Clear";
+import AddColor from "./components/AddColor";
+import './components/Rgb.jsx'
+import Rgb from "./components/Rgb";
 
 function App() {
+  const [array, setArray] = useState([
+    {
+      r: 150,
+      g: 20,
+      b: 20
+    },
+    {
+      r: 20,
+      g: 150,
+      b: 20
+    }
+  ]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className="App">
+        <div className='App-main'>
+          <AddColor array={array} setArray={setArray}/>
+          <Clear array={array} setArray={setArray}/>
+        </div>
+        <div className="App-main2">
+          <Paint array={array} setArray={setArray} />
+          <Rgb array={array} setArray={setArray} />
+        </div>
+      </div>
   );
 }
 
